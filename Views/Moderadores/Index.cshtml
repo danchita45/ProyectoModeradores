@@ -2,7 +2,11 @@
 @model List<ProyectoModeradores.Models.Moderador>
 
 <a class="btn-primary" onclick="mostrarModal()"> importar Archivo</a>
-<table cellpadding="6">
+<br/>
+<br/>
+<br/>
+<a class="btn-primary" onclick="NuevoModModal()"> Alta Moderador</a>
+<table cellpadding="6" width="100%" align="center">
     <thead>
         <tr>
             <td>
@@ -57,20 +61,93 @@
                 </button>
             </div>
             <div class="modal-body">
-              <form asp-controller="Moderadores" asp-action="Import" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <div class="col-4"><label>Archivo </label></div>
-                        <div class="col-6">
-                            <input type="file" id="FileData" name="FileData" />
+                <form asp-controller="Moderadores" asp-action="Import" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-4"><label>Archivo </label></div>
+                            <div class="col-6">
+                                <input type="file" id="FileData" name="FileData" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Importar</button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Importar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="NuevoMod" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width:1500px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TitleSearchDest">Nuevo Trailer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Moderadores" asp-action="Import" method="post">
+                    <div class="modal-body">
+                        <table width="100%" align="center" border="1" cellpadding="4">
+                            <tr>
+                                <td>
+                                    Nombre
+                                </td>
+                                <td>
+                                    <input type="text" name="Name">
+                                </td>
+                                <td>
+                                    Apellido Paterno
+                                </td>
+                                <td>
+                                    <input type="text" name="ApellidoP">
+                                </td>
+                                <td>
+                                    Apellido Materno
+                                </td>
+                                <td>
+                                    <input type="text" name="ApellidoM">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                
+                                <td>
+                                    Area Principal
+                                </td>
+                                <td>
+                                    <select name="Area1" class="form-control" style="width:300px">
+                                        <option Value=0> Ciencias</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    Area Secundaria
+                                </td>
+                                <td>
+                                    <select name="Area2" class="form-control" style="width:300px">
+                                        <option Value=0> Ciencias</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" align="right">
+                                    institucion
+                                </td>
+                                <td colspan="3">
+                                    <input type="text" name="Insitucion">
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
