@@ -1,22 +1,79 @@
 ﻿@using Microsoft.AspNetCore.Mvc
+@model List<ProyectoModeradores.Models.Moderador>
 
-<table>
-     <form asp-action="Consultar" asp-controller="Moderadores"  method="post">
-    <tr>
-       
-        <td>
-            <input type="text" name="User" />
-        </td>
-        <td>
-            <input type="password" name="Pass" />
-        </td>
-        
-         
-    </tr>
-    <tr>
-        <td>
-            <button type="submit"> Entrar</button>
-        </td>
-    </tr>
-    </form>
+<a class="btn-primary" onclick="mostrarModal()"> importar Archivo</a>
+<table cellpadding="6">
+    <thead>
+        <tr>
+            <td>
+                Moderador
+            </td>
+            <td>
+                Area Principal
+            </td>
+            <td>
+                Area Secundaria
+            </td>
+            <td>
+                Institucion
+            </td>
+            <td>
+                Status Actual
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in Model)
+            {
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Area1.Description
+                </td>
+                <td>
+                    @item.Area2.Description
+                </td>
+                <td>
+                    @item.InstitucionId
+                </td>
+                <td>
+                    @item.statusId
+                </td>
+            }
+        </tr>
+    </tbody>
 </table>
+
+
+<div class="modal fade" id="ImportFile" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TitleSearchDest">Nuevo Trailer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form asp-controller="Moderadores" asp-action="Import" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="col-4"><label>Archivo </label></div>
+                        <div class="col-6">
+                            <input type="file" id="FileData" name="FileData" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Importar</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Moderadores.js"></script>

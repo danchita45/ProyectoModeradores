@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UY2zUn6T1/kPJsS9KYO13wzI4YCiLvNatPFRNCNKIxw=",
+  "Hash": "MU4SFzFeaKAdUTUzcIJ45A9JfkUPzGr2HHtuKiqA+x4=",
   "Source": "ProyectoModeradores",
   "BasePath": "_content/ProyectoModeradores",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\wwwroot\\js\\Moderadores.js",
+      "SourceId": "ProyectoModeradores",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\wwwroot\\",
+      "BasePath": "_content/ProyectoModeradores",
+      "RelativePath": "js/Moderadores.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Moderadores.js"
     },
     {
       "Identity": "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\wwwroot\\js\\site.js",
