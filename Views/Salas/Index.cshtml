@@ -1,9 +1,22 @@
 ﻿@using Microsoft.AspNetCore.Mvc
 @model List<ProyectoModeradores.Models.Sala>
+<table>
+    <tr>
+        <td>
 
-<a class="btn-link" onclick="mostrarModal()"> importar Archivo</a>
-<a class="btn-link" onclick="mostrarModalNuevaSala()"> Nueva Sala</a>
-<table cellpadding="6" width="100%" align="center">
+            <a class="btn-link" onclick="mostrarModal()"> importar Archivo</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="btn-link" onclick="mostrarModalNuevaSala()"> Nueva Sala</a>
+        </td>
+    </tr>
+</table>
+
+
+
+<table cellpadding="6" width="100%" align="center" id="Main_DataTable" class="table">
     <thead>
         <tr>
             <td>
@@ -13,7 +26,7 @@
                 Sala
             </td>
             <td>
-                Area 
+                Area
             </td>
             <td>
                 Status Actual
@@ -22,7 +35,6 @@
     </thead>
     <tbody>
         <tr>
-
         </tr>
     </tbody>
 </table>
@@ -38,20 +50,20 @@
                 </button>
             </div>
             <div class="modal-body">
-              <form asp-controller="Moderadores" asp-action="Import" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <div class="col-4"><label>Archivo </label></div>
-                        <div class="col-6">
-                            <input type="file" id="FileData" name="FileData" />
+                <form asp-controller="Moderadores" asp-action="Import" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-4"><label>Archivo </label></div>
+                            <div class="col-6">
+                                <input type="file" id="FileData" name="FileData" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Importar</button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Importar</button>
-                    </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
@@ -68,20 +80,20 @@
                 </button>
             </div>
             <div class="modal-body">
-              <form asp-controller="Moderadores" asp-action="Import" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <div class="col-4"><label>Archivo </label></div>
-                        <div class="col-6">
-                            <input type="file" id="FileData" name="FileData" />
+                <form asp-controller="Moderadores" asp-action="Import" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-4"><label>Archivo </label></div>
+                            <div class="col-6">
+                                <input type="file" id="FileData" name="FileData" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Importar</button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Importar</button>
-                    </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>

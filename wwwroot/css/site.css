@@ -16,3 +16,280 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.balanceLoad-tableHeader {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #d1d1d1;
+    border-width: 2px;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.balanceLoad-tableCell {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #ebebeb;
+    border-width: 2px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.balanceLoad-tableCellRight {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #ebebeb;
+    border-width: 2px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: right;
+}
+
+.balanceLoad-tableCellCenter {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #ebebeb;
+    border-width: 2px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+.balanceLoad-tableCellBlue {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #1b6ec2;
+    border-width: 2px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: #ffffff;
+}
+
+.text-Request-Info {
+    color = #b1b1b1;
+}
+
+balanceLoad-table {
+    width: 600px;
+}
+
+.detailHeader {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #d1d1d1;
+    border-width: 1px;
+    width: 80px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.detailCell {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #ebebeb;
+    border-width: 1px;
+    width: 80px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.detailCellBold {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #ebebeb;
+    border-width: 1px;
+    width: 80px;
+    font-size: 12px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.detailTitleGray {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #d1d1d1;
+    border-width: 1px;
+    width: 200px;
+    font-size: 12px;
+    text-align: left;
+}
+
+.detailTitleGrayShort {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #d1d1d1;
+    border-width: 1px;
+    width: 120px;
+    font-size: 12px;
+    text-align: left;
+}
+
+.brShort {
+    font-size: 4px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.detailTitleBold {
+    font-weight: bold;
+}
+
+.detailTitleBlue {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: dodgerblue;
+    border-width: 1px;
+    width: 200px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF
+}
+
+.detailTitleBlueShort {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: dodgerblue;
+    border-width: 1px;
+    width: 120px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF
+}
+
+.detailTitleGrayCell {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #d1d1d1;
+    border-width: 1px;
+    width: 200px;
+    font-size: 12px;
+}
+
+.detailTitleCell {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #ebebeb;
+    border-width: 1px;
+    width: 200px;
+    font-size: 12px;
+}
+
+.detailTitleCellShort {
+    border-style: solid;
+    border-color: #b1b1b1;
+    background-color: #ebebeb;
+    border-width: 1px;
+    width: 120px;
+    font-size: 12px;
+}
+
+.iconPlus {
+    width: 20px;
+    padding-right: 5px;
+}
+
+.configurationContainer {
+    margin-left: 50px;
+}
+
+.tree {
+    margin-left: 30px;
+}
+
+.inputCell {
+    width: -webkit-fill-available;
+    height: fit-content(100%);
+}
+
+.tableCell {
+    font-size: 12px;
+}
+
+.tableCellBold {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.inpuCantidad {
+    border-style: solid;
+    border-radius: 3px;
+    border-color: #d1d1d1;
+    border-width: 1px;
+    margin-bottom: 2px;
+    width: 60px;
+}
+
+#TitleSearchDest {
+    color: floralwhite;
+}
+
+.modal-header {
+    background: linear-gradient(to left, #91C8ED, #064688);
+}
+
+.tableCellBold {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.inpuCantidad {
+    border-style: solid;
+    border-radius: 3px;
+    border-color: #d1d1d1;
+    border-width: 1px;
+    margin-bottom: 2px;
+    width: 60px;
+}
+
+#exampleModalLongTitle {
+    color: floralwhite;
+}
+
+.modal-header {
+    background: linear-gradient(to left, #91C8ED, #064688);
+}
+
+.aEleccion:focus {
+    background: #064688;
+}
+
+/* Inventario TRansporte */
+.FormularioSolAbi {
+    margin-top: 20px;
+    border: 2px solid;
+}
+
+.TituloSolAbi {
+    width: 120px;
+    font-size: 14px;
+    margin-top: -13px;
+    margin-left: 14px;
+    background: white;
+}
+
+.TituloSolAbi2 {
+    width: 62px;
+    font-size: 14px;
+    margin-top: -13px;
+    margin-left: 14px;
+    background: white;
+}
+
+.comentarioClass {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    width: 95%;
+}
