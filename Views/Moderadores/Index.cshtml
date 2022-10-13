@@ -32,10 +32,10 @@
                     @item.Name
                 </td>
                 <td>
-                    @item.Area1.Description
+                    @item.Area1
                 </td>
                 <td>
-                    @item.Area2.Description
+                    @item.Area2
                 </td>
                 <td>
                     @item.InstitucionId
@@ -85,7 +85,7 @@
                 <h5 class="modal-title" id="TitleSearchDest">Nuevo Trailer</h5>
             </div>
             <div class="modal-body">
-                <form asp-controller="Moderadores" asp-action="Import" method="post">
+                <form asp-controller="Moderadores" asp-action="AgregarMod" method="post">
                     <div class="modal-body">
                         <table width="100%" align="center" border="1" cellpadding="4">
                             <tr>
@@ -116,7 +116,7 @@
                                 </td>
                                 <td>
                                     <select name="Area1" class="form-control" style="width:300px">
-                                        <option Value=0> Ciencias</option>
+                                        <option Value=1 selected> Ciencias</option>
                                     </select>
                                 </td>
                                 <td>
@@ -124,7 +124,7 @@
                                 </td>
                                 <td>
                                     <select name="Area2" class="form-control" style="width:300px">
-                                        <option Value=0> Ciencias</option>
+                                        <option Value=2 selected> Matematicas</option>
                                     </select>
                                 </td>
                             </tr>
@@ -133,7 +133,9 @@
                                     institucion
                                 </td>
                                 <td colspan="3">
-                                    <input type="text" name="Insitucion">
+                                    <select type="text" name="Insitucion">
+                                        <option Value=1 selected> UAEMEX</option>
+                                        </select>
                                 </td>
                             </tr>
                         </table>

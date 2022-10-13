@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoModeradores.Models;
-
-    
+using ProyectoModeradores.Models.Connection;
 
 namespace ProyectoModeradores.Controllers
 {
@@ -16,18 +15,10 @@ namespace ProyectoModeradores.Controllers
             moderador.Name = "Ricardo";
             moderador.ApellidoP = "Barrera";
             moderador.ApellidoM = "Martinez";
-            moderador.Area1 = new Area()
-            {
-                AreaId = 1,
-                Code = "SC",
-                Description = " ciencias"
-            };
-            moderador.Area2 = new Area()
-            {
-                AreaId = 1,
-                Code = "SC",
-                Description = " ciencias"
-            };
+            moderador.Area1 = 1.ToString();
+            moderador.Area2 = 2.ToString();
+
+            
             moderador.statusId = 1;
             moderador.InstitucionId = 1;
 
@@ -41,6 +32,18 @@ namespace ProyectoModeradores.Controllers
         {
             return Redirect(nameof(Index));
         }
+
+        [HttpPost]
+        public IActionResult AgregarMod(Moderador mod)
+        {
+            if (ModeradorDB.SaveMod(mod))
+            {
+                
+            }
+            return Redirect(nameof(Index));
+        }
+
+
 
         [HttpPost]
         public async Task<IActionResult> Import(IFormFile FileData)
