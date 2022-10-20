@@ -1,5 +1,13 @@
-﻿@using Microsoft.AspNetCore.Mvc
+@using Microsoft.AspNetCore.Mvc
 @model List<ProyectoModeradores.Models.Moderador>
+<script src="assets/javascript/jquery-3.1.1.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-theme.min.css">
+    
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
 
 <a class="btn-link" onclick="mostrarModal()"> importar Archivo</a>
 <br/>
@@ -92,7 +100,7 @@
             <div class="modal-body">
                 <form asp-controller="Moderadores" asp-action="AgregarMod" method="post">
                     <div class="modal-body">
-                        <table width="100%" align="center" border="1" cellpadding="4" >
+                        <table width="100%" align="center" border="1" cellpadding="4">
                             <tr>
                                 <td>
                                     Nombre
@@ -139,7 +147,7 @@
                                 </td>
                                 <td colspan="3">
                                     <select type="text" name="Insitucion">
-                                        <option value="1" selected> UAEMEX</option>
+                                        <option Value=1 selected> UAEMEX</option>
                                         </select>
                                 </td>
                             </tr>
@@ -155,4 +163,4 @@
 </div>
 
 <script src="~/js/Moderadores.js"></script>
-
+<script type="text/javascript" src="assets/javascript/flickr.js"></script>

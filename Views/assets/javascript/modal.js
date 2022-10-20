@@ -1,0 +1,1 @@
+// folded all code into index.html (modal structure) and flickr.js (fill content and invoke the modal)

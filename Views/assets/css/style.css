@@ -1,0 +1,114 @@
+@font-face {
+    font-family: VOGA;
+  }
+
+body {
+	
+	font-family: VOGA !important;
+	font-size: 48px;
+}
+caption {
+  font-weight: bold;
+	font-size: 49px;
+	text-align: center;	
+	color: #333;
+	margin-bottom: 16px;
+}
+
+table {
+
+  border-collapse: collapse;   
+  border: 10px black;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+
+thead {
+  background-color: orange;
+  color: white;
+}
+
+tbody th {
+  background-color: #36c;
+  color: #fff;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) th {
+  background-color: #25c;
+}
+
+.cell-highlight {
+  background-color: orange;
+  font-weight: lighter;
+}
+
+
+input, select, button {
+	font-size: 20px !important;
+}
+
+#titleDiv, label {
+	text-shadow: 4px 4px 4px #aaa;
+}
+
+#myModalLabel {
+	font-size: 30px !important;
+	text-shadow: 4px 4px 4px #aaa;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.myShowImage {
+	margin-bottom: 20px;
+}
+
+#modalRow1 {
+	margin-bottom: 10px;
+}
+
+#largerPOIimage {
+	height: 100px;
+}
+
+#wuLogo {
+	width: 150px;
+}
+
+#logoImage {
+	width: 50%;
+}
+
+#logoImageDiv {
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+#image1, #image2, #image3, #image4, #image5, #image6 {
+	margin-top: 10px;
+}
+
+#userEntryRow {
+	margin-bottom: 30px;
+}
+
+#mapRow {
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+#reloadButton {
+	margin-top: 20px;
+}
