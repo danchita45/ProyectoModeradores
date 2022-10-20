@@ -38,7 +38,7 @@ namespace ProyectoModeradores.Controllers
         [HttpPost]
         public IActionResult AgregarMod(Moderador mod)
         {
-            if (ModeradorDB.SaveMod(mod))
+            if (!ModeradorDB.SaveMod(mod))
             {
 
             }

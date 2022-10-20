@@ -16,6 +16,7 @@ namespace ProyectoModeradores.Models.Connection
 
                 string sql = "EXEC	dbo.SalaInsert " + "@Code='" + e.Code.ToString() + "',"
                     + "@Description='" + e.Description.ToString() + "',"
+                    + "@AreaId='" + e.AreaId.ToString() + "',"
                     + "@StatusId= 1";
 
 
@@ -39,7 +40,7 @@ namespace ProyectoModeradores.Models.Connection
             }
         }
 
-        public static DataTable ViewMods()
+        public static DataTable ViewSala()
         {
 
             try
@@ -47,7 +48,7 @@ namespace ProyectoModeradores.Models.Connection
 
                 Connections con = new Connections();
 
-                string sql = "SELECT * FROM dbo.Sala ";
+                string sql = "EXEC dbo.SalaSelectAll ";
 
 
 
