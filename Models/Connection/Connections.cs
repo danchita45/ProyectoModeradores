@@ -8,7 +8,7 @@ namespace ProyectoModeradores.Controllers
 
         public Connections()
         {
-            con = new SqlConnection("Server= DANCHITADESKTOP\\SQLEXPRESS;Database=SQLPrueba;integrated security=true");
+            con = new SqlConnection("Server= DANCHITADESKTOP\\SQLEXPRESS;Database=SQLPrueba;integrated security=True;Encrypt=False ");
         }
 
         public SqlConnection conectar()
@@ -17,6 +17,7 @@ namespace ProyectoModeradores.Controllers
             {
                 con.Open();
                 return con;
+
             }catch (Exception ex)
             {
                 return  null;

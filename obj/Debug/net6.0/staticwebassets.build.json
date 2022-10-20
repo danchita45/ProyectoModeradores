@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MU4SFzFeaKAdUTUzcIJ45A9JfkUPzGr2HHtuKiqA+x4=",
+  "Hash": "0TowIFPXxUdx+ZtrbrykKPrRmS5zdyKyfKaIa+knB7s=",
   "Source": "ProyectoModeradores",
   "BasePath": "_content/ProyectoModeradores",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ProyectoModeradores.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\wwwroot\\css\\header-17.html",
+      "SourceId": "ProyectoModeradores",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\wwwroot\\",
+      "BasePath": "_content/ProyectoModeradores",
+      "RelativePath": "css/header-17.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\header-17.html"
     },
     {
       "Identity": "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\wwwroot\\css\\site.css",

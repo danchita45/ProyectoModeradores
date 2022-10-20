@@ -1,33 +1,35 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoModeradores.Models;
 using ProyectoModeradores.Models.Connection;
+using System.Data;
 
 namespace ProyectoModeradores.Controllers
 {
-    
+
     public class ModeradoresController : Controller
     {
         List<Moderador> moderadors = new List<Moderador>();
         public IActionResult Index()
         {
-            Moderador moderador = new Moderador();
-            moderador.Id = 1;
-            moderador.Name = "Ricardo";
-            moderador.ApellidoP = "Barrera";
-            moderador.ApellidoM = "Martinez";
-            moderador.Area1 = 1.ToString();
-            moderador.Area2 = 2.ToString();
+            DataTable dataTable = ModeradorDB.ViewMods();
+           
 
-            
-            moderador.statusId = 1;
-            moderador.InstitucionId = 1;
-
-            moderadors.Add(moderador);
-
+            foreach (DataRow lRow in dataTable.Rows)
+            {
+                moderadors.Add(new Moderador()
+                {
+                    Id = Convert.ToInt32(lRow["id_Moderador"]),
+                    Name = lRow["Nombre"].ToString(),
+                    ApellidoP = lRow["ApellidoP"].ToString(),
+                    ApellidoM = lRow["ApellidoM"].ToString(),
+                    statusId = Convert.ToInt32(lRow["StatusId"]),
+                });
+                
+            }
             return View(moderadors);
         }
 
-       [HttpPost]
+        [HttpPost]
         public IActionResult Consultar(string User, string Pass)
         {
             return Redirect(nameof(Index));
@@ -38,7 +40,7 @@ namespace ProyectoModeradores.Controllers
         {
             if (ModeradorDB.SaveMod(mod))
             {
-                
+
             }
             return Redirect(nameof(Index));
         }
@@ -48,7 +50,7 @@ namespace ProyectoModeradores.Controllers
         [HttpPost]
         public async Task<IActionResult> Import(IFormFile FileData)
         {
-           
+
             return Redirect("/Moderadores/Index");
         }
 

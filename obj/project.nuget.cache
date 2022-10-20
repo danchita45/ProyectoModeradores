@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "mGPcNpcVbPw0Sa5stMbh6p5yPE/7ZFxCswclQIuey0/Zxo2LOM/5FE3vs+dzRmQCETQktRgs18e+dYor2EQq7g==",
+  "dgSpecHash": "mBeDwUV2sLMlnLhA1MUZoOUbv+1T7CXNkexAr560VY20g2ByRD1yqha2/KBUFkb5fEnfvbzuZyZ2R0N1xnPgZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\ProyectoModeradores.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danch\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\danch\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\danch\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
+    "C:\\Users\\danch\\.nuget\\packages\\exceldatareader.dataset\\3.6.0\\exceldatareader.dataset.3.6.0.nupkg.sha512",
     "C:\\Users\\danch\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\danch\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\danch\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

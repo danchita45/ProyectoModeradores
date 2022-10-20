@@ -25,9 +25,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        
             @foreach (var item in Model)
             {
+                <tr>
                 <td>
                     @item.Name
                 </td>
@@ -43,8 +44,12 @@
                 <td>
                     @item.statusId
                 </td>
+                <td>
+                    <a class="btn-link" asp-action="Edit" asp-controller="Moderadores">editar</a>
+                </td>
+                </tr>
             }
-        </tr>
+        
     </tbody>
 </table>
 
