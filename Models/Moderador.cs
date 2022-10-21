@@ -7,7 +7,7 @@
         public string ApellidoP { get; set; }
         public string ApellidoM { get; set; }
         public string email { get; set; }
-
+        public string Password { get; set; }
         public int statusId { get; set; }
         public string Area1 {get; set;}
         public string Area2 {get; set;}

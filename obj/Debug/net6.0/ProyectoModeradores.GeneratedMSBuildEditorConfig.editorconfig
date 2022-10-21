@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/danch/OneDrive/Escritorio/9°/Auditoria/Proyecto/ProyectoModeradores/Views/Eventos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/danch/OneDrive/Escritorio/9°/Auditoria/Proyecto/ProyectoModeradores/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -25,6 +29,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/danch/OneDrive/Escritorio/9°/Auditoria/Proyecto/ProyectoModeradores/Views/Moderadores/Consultar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZXJhZG9yZXNcQ29uc3VsdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/danch/OneDrive/Escritorio/9°/Auditoria/Proyecto/ProyectoModeradores/Views/Moderadores/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZXJhZG9yZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/danch/OneDrive/Escritorio/9°/Auditoria/Proyecto/ProyectoModeradores/Views/Moderadores/Index.cshtml]

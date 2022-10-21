@@ -12,13 +12,8 @@ namespace ProyectoModeradores.Models.Connection
 
             try
             {
-
                 Connections con = new Connections();
-
                 string sql = "EXEC dbo.AreaSelectAll ";
-
-
-
                 SqlCommand command = new SqlCommand(sql, con.conectar());
                 SqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
                 DataTable dt = new DataTable();

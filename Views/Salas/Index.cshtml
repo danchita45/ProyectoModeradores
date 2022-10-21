@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Mvc
+@using Newtonsoft.Json
 @model List<ProyectoModeradores.Models.Sala>
 <table>
     <tr>
@@ -34,17 +35,30 @@
             <td>
                 Status Actual
             </td>
+            <td>
+                editar
+            </td>
+            <td>
+                eliminar
+            </td>
         </tr>
     </thead>
     <tbody>
         @foreach (ProyectoModeradores.Models.Sala sala in ViewBag.Salas)
         {
+            var lObject = JsonConvert.SerializeObject(sala);
             <tr>
                 <td> @sala.SalaId</td>
                 <td>@sala.Code</td>
                 <td>@sala.Description</td>
                 <td>@sala.Area.Description</td>
                 <td>@sala.Status.Description</td>
+                <td>
+                    <a class="btn-link" onclick="EditSala(@lObject)">editar</a>
+                </td>
+                <td>
+                    <a class="btn-link" asp-action="Delete" asp-route-id="@sala.SalaId">eliminar</a>
+                </td>
             </tr>
         }
     </tbody>
@@ -96,17 +110,20 @@
 
                         <table align="center" width="100%" cellpadding="4">
                             <tr>
+                                <td hidden>
+                                     <input type="text" id="Id" name="SalaId">
+                                </td>
                                 <td>
                                     Codigo:
                                 </td>
                                 <td>
-                                    <input type="text" name="Code">
+                                    <input type="text" id="Code" name="Code">
                                 </td>
                                 <td>
                                     Descripción:
                                 </td>
                                 <td>
-                                    <textarea type="text" name="Description"></textarea>
+                                    <textarea type="text" id="Desc" name="Description"></textarea>
                                 </td>
                             </tr>
                             <tr>

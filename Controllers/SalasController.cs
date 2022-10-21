@@ -64,11 +64,19 @@ namespace ProyectoModeradores.Controllers
 
         public IActionResult Save(Sala sala)
         {
-            if (!SalasDB.SaveSala(sala))
+            if (sala.SalaId != 0)
             {
-                
+                SalasDB.UpdateSala(sala);
             }
+            SalasDB.SaveSala(sala);
+                
+
             return Redirect(nameof(Index));
+        }
+        public IActionResult Delete(int id)
+        {
+            SalasDB.DeleteSala(id);
+            return Redirect("/Salas/Index");
         }
     }
 }

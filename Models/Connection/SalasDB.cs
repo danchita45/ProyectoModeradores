@@ -6,6 +6,70 @@ namespace ProyectoModeradores.Models.Connection
 {
     public class SalasDB 
     {
+
+        public static bool DeleteSala(int id)
+        {
+            try
+            {
+
+                Connections con = new Connections();
+
+                string sql = "EXEC	dbo.SalaDelete " + "@SalaId=" + id.ToString();
+
+
+
+                SqlCommand command = new SqlCommand(sql, con.conectar());
+                int cantidad = command.ExecuteNonQuery();
+                if (cantidad == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                con.desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+        public static bool UpdateSala(ProyectoModeradores.Models.Sala e)
+        {
+            try
+            {
+
+                Connections con = new Connections();
+
+                string sql = "EXEC	dbo.SalaUpdate " + "@Code='" + e.Code.ToString() + "',"
+                    + "@Description='" + e.Description.ToString() + "',"
+                    + "@SalaId='" + e.SalaId.ToString() + "',"
+                    + "@AreaId='" + e.AreaId.ToString() + "',"
+                    + "@StatusId= 1";
+
+
+
+                SqlCommand command = new SqlCommand(sql, con.conectar());
+                int cantidad = command.ExecuteNonQuery();
+                if (cantidad == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                con.desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public static bool SaveSala(ProyectoModeradores.Models.Sala e)
         {
 

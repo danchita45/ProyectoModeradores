@@ -87,3 +87,11 @@ C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bi
 C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\obj\Debug\net6.0\ProyectoModeradores.csproj.CopyComplete
 C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\ExcelDataReader.dll
 C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\ExcelDataReader.DataSet.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\SpreadsheetLight.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\Newtonsoft.Json.Schema.dll

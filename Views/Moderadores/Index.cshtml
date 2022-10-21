@@ -1,18 +1,20 @@
 @using Microsoft.AspNetCore.Mvc
+@using Newtonsoft.Json
+
 @model List<ProyectoModeradores.Models.Moderador>
 <script src="assets/javascript/jquery-3.1.1.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
 
 <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-theme.min.css">
-    
+
 <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 
 <a class="btn-link" onclick="mostrarModal()"> importar Archivo</a>
-<br/>
+<br />
 <a class="btn-link" onclick="NuevoModModal()"> Alta Moderador</a>
-<table cellpadding="6" width="100%" align="center"  id="Main_DataTable" class="table">
+<table cellpadding="6" width="100%" align="center" id="Main_DataTable" class="table">
     <thead>
         <tr>
             <td>
@@ -30,13 +32,20 @@
             <td>
                 Status Actual
             </td>
+            <td>
+                editar
+            </td>
+            <td>
+                eliminar
+            </td>
         </tr>
     </thead>
     <tbody>
-        
-            @foreach (var item in Model)
-            {
-                <tr>
+
+        @foreach (var item in Model)
+        {
+            var lObject = JsonConvert.SerializeObject(item);
+            <tr>
                 <td>
                     @item.Name
                 </td>
@@ -53,11 +62,14 @@
                     @item.statusId
                 </td>
                 <td>
-                    <a class="btn-link" asp-action="Edit" asp-controller="Moderadores">editar</a>
+                    <a class="btn-link" onclick="EditMod(@lObject)">editar</a>
                 </td>
-                </tr>
-            }
-        
+                <td>
+                    <a class="btn-link" asp-action="Delete" asp-route-id="@item.Id">eliminar</a>
+                </td>
+            </tr>
+        }
+
     </tbody>
 </table>
 
@@ -102,33 +114,36 @@
                     <div class="modal-body">
                         <table width="100%" align="center" border="1" cellpadding="4">
                             <tr>
+                                <td hidden>
+                                    <input type="text" id="Id" name="Id">
+                                </td>
                                 <td>
                                     Nombre
                                 </td>
                                 <td>
-                                    <input type="text" name="Name">
+                                    <input type="text" id="Name" name="Name">
                                 </td>
                                 <td>
                                     Apellido Paterno
                                 </td>
                                 <td>
-                                    <input type="text" name="ApellidoP">
+                                    <input type="text" id="ApellidoP" name="ApellidoP">
                                 </td>
                                 <td>
                                     Apellido Materno
                                 </td>
                                 <td>
-                                    <input type="text" name="ApellidoM">
+                                    <input type="text" id="ApellidoM" name="ApellidoM">
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                
+
                                 <td>
                                     Area Principal
                                 </td>
                                 <td>
-                                    <select name="Area1" class="form-control" style="width:300px">
+                                    <select name="Area1" id="Area1" class="form-control" style="width:300px">
                                         <option Value=1 selected> Ciencias</option>
                                     </select>
                                 </td>
@@ -136,7 +151,7 @@
                                     Area Secundaria
                                 </td>
                                 <td>
-                                    <select name="Area2" class="form-control" style="width:300px">
+                                    <select name="Area2" id="Area2" class="form-control" style="width:300px">
                                         <option Value=2 selected> Matematicas</option>
                                     </select>
                                 </td>
@@ -146,9 +161,9 @@
                                     institucion
                                 </td>
                                 <td colspan="3">
-                                    <select type="text" name="Insitucion">
+                                    <select type="text" id="institucion" name="Insitucion">
                                         <option Value=1 selected> UAEMEX</option>
-                                        </select>
+                                    </select>
                                 </td>
                             </tr>
                         </table>

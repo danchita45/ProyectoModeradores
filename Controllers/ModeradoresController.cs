@@ -12,7 +12,7 @@ namespace ProyectoModeradores.Controllers
         public IActionResult Index()
         {
             DataTable dataTable = ModeradorDB.ViewMods();
-           
+
 
             foreach (DataRow lRow in dataTable.Rows)
             {
@@ -24,7 +24,7 @@ namespace ProyectoModeradores.Controllers
                     ApellidoM = lRow["ApellidoM"].ToString(),
                     statusId = Convert.ToInt32(lRow["StatusId"]),
                 });
-                
+
             }
             return View(moderadors);
         }
@@ -38,13 +38,39 @@ namespace ProyectoModeradores.Controllers
         [HttpPost]
         public IActionResult AgregarMod(Moderador mod)
         {
-            if (!ModeradorDB.SaveMod(mod))
+            if (mod.Id == null)
             {
-
+                ModeradorDB.SaveMod(mod);
             }
+            ModeradorDB.UpdateMod(mod);
             return Redirect(nameof(Index));
         }
+        public IActionResult Delete(int id)
+        {
+            ModeradorDB.DeleteMod(id);
+            return Redirect("/Moderadores/Index");
+        }
 
+        public IActionResult Edit(int? id)
+        {
+            DataTable dataTable = ModeradorDB.SelectMod((int)id);
+
+            Moderador mod = new Moderador();
+            foreach (DataRow lRow in dataTable.Rows)
+            {
+
+
+
+                mod.Id = Convert.ToInt32(lRow["id_Moderador"]);
+                mod.Name = lRow["Nombre"].ToString();
+                mod.ApellidoP = lRow["ApellidoP"].ToString();
+                mod.ApellidoM = lRow["ApellidoM"].ToString();
+                mod.statusId = Convert.ToInt32(lRow["StatusId"]);
+
+            }
+
+            return View(mod);
+        }
 
 
         [HttpPost]

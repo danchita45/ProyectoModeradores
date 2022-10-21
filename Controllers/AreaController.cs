@@ -23,7 +23,7 @@ namespace ProyectoModeradores.Controllers
 
                         FileData.CopyTo(content);
 
-                        String lPath = "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\.xlsx";
+                        String lPath = "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\content.xlsx";
                         
                         System.IO.File.WriteAllBytes(lPath, content.ToArray());
                         FileStream fileStream = new FileStream(lPath, FileMode.Open, FileAccess.Read);
