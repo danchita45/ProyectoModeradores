@@ -87,8 +87,6 @@ namespace ProyectoModeradores.Models.Connection
                     + "@ApellidoP='" + e.ApellidoP.ToString() + "',"
                     + "@ApellidoM='" + e.ApellidoM.ToString() + "',"
                     + "@StatusId= 1,"
-                    + "@AreaId1='" + e.Area1.ToString() + "',"
-                    + "@AreaId2='" + e.Area2.ToString() + "',"
                     + "@InstitucionId='" + e.InstitucionId.ToString() + "'";
 
                 
