@@ -29,5 +29,44 @@ namespace ProyectoModeradores.Models.Connection
                 return null;
             }
         }
+
+        public static bool SaveEvent(ProyectoModeradores.Models.Evento e)
+        {
+
+            try
+            {
+
+                Connections con = new Connections();
+
+                string sql = "EXEC	dbo.spEventoInsert " + "@Name='" + e.Name.ToString() + "',"
+                    + "@Code='" + e.Code.ToString() + "',"
+                    + "@Description='" + e.Description.ToString() + "',"
+                    + "@FInicio='" + e.FInicio.ToShortTimeString() + "',"
+                    + "@FTermino='" + e.FTermino.ToShortTimeString() + "',"
+                    + "@StatusId= 1,"
+                    + "@ModeradorId='" + e.ModeradorId.ToString() + "',"
+                    + "@SalaId='" + e.SalaId.ToString() + "',"
+                    + "@AreaId='" + e.AreaId.ToString() + "'";
+
+
+
+                SqlCommand command = new SqlCommand(sql, con.conectar());
+                int cantidad = command.ExecuteNonQuery();
+                if (cantidad == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                con.desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

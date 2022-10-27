@@ -26,3 +26,14 @@ function EditSala(obj) {
     document.getElementById('Area').value = obj.AreaId;
     $('#NuevaSala').modal('show');
 }
+
+function EditEvent(obj) {
+    document.getElementById('Id').value = obj.Id;
+    document.getElementById('Code').value = obj.Code;
+    document.getElementById('Name').value = obj.Name;
+    document.getElementById('Desc').value = obj.Description;
+    document.getElementById('Status').value = obj.StatusId;
+    document.getElementById('Area').value = obj.AreaId;
+    document.getElementById('Moderador').value = obj.ModeradorId;
+    $('#NuevoMod').modal('show');
+}

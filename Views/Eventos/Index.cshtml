@@ -1,22 +1,154 @@
-﻿<table width="100%" align="center">
+﻿@using Newtonsoft.Json
+
+<script src="assets/javascript/jquery-3.1.1.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<table width="100%" align="center">
     <thead>
-    <tr>
-        <td>Evento</td>
-        <td> Description</td>
-        <td>Moderador </td>
-        <td>Sala</td>
-        <td>Area</td>
-        <td>Status</td>
-        <td>Hora Inicio</td>
-        <td>Hora Fin</td>
-        <td> Hora Actual : </td>
-    </tr>
-</thead>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+        <tr>
+            <td>Evento</td>
+            <td> Description</td>
+            <td>Moderador </td>
+            <td>Sala</td>
+            <td>Area</td>
+            <td>Status</td>
+            <td>Hora Inicio</td>
+            <td>Hora Fin</td>
+            <td> Editar </td>
+            <td> Eliminar </td>
+        </tr>
+    </thead>
+    @foreach (ProyectoModeradores.Models.Evento Eve in ViewBag.Eventos)
+    {
+        var lObject = JsonConvert.SerializeObject(Eve);
+        <tr>
+            <td>
+                @Eve.Name
+            </td>
+            <td>
+                @Eve.Description
+            </td>
+            <td>
+                @Eve.Moderador.Name
+            </td>
+            <td>
+                @Eve.Sala.Description
+            </td>
+            <td>
+                @Eve.Area.Description
+            </td>
+            <td>
+                @Eve.Status.Description
+            </td>
+            <td>
+                @Eve.FInicio
+            </td>
+            <td>@Eve.FTermino</td>
+            <td>
+                <a class="btn-link" onclick="EditEvent(@lObject)">editar</a>
+            </td>
+            <td>
+                <button type="button" class="btn-link" asp-action="DeleteEvent" asp-route-id="@Eve.EventId"> Eliminar</button>
+            </td>
+        </tr>
+    }
 </table>
+
+
+<div class="modal fade" id="NuevoMod" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width:1500px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TitleSearchDest">Nuevo Trailer</h5>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Eventos" asp-action="Save" method="post">
+                    <div class="modal-body">
+
+                        <table align="center" width="100%" cellpadding="4">
+                            <tr>
+                                <td hidden>
+                                    <input type="text" id="Id" name="EventoId">
+                                </td>
+                                <td>
+                                    Nombre:
+                                </td>
+                                <td>
+                                    <input type="text" id="Name" name="Name">
+                                </td>
+                                <td>
+                                    Codigo:
+                                </td>
+                                <td>
+                                    <input type="text" id="Code" name="Code">
+                                </td>
+                                <td>
+                                    Descripción:
+                                </td>
+                                <td>
+                                    <textarea type="text" id="Desc" name="Description"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Status:
+                                </td>
+                                <td>
+                                    <select name="StatusId" id="Status" class="form-control">
+                                        @foreach (ProyectoModeradores.Models.Status st in ViewBag.Statuses)
+                                        {
+                                            <option value="@st.StatusId">@st.Code</option>
+                                        }
+                                    </select>
+                                </td>
+                                <td>
+                                    Area:
+                                </td>
+                                <td>
+                                    <select name="AreaId" id="Area" class="form-control">
+                                        @foreach (ProyectoModeradores.Models.Area A in ViewBag.Areas)
+                                        {
+                                            <option value="@A.AreaId">@A.Description</option>
+                                        }
+                                    </select>
+                                </td>
+
+                                <td>
+                                    Moderador:
+                                </td>
+                                <td>
+                                    <select name="ModeradorId" id="Moderador" class="form-control">
+                                        @foreach (ProyectoModeradores.Models.Moderador M in ViewBag.Moderadores)
+                                        {
+                                            <option value="@M.Id">@M.Name</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fecha Inicio</td>
+                                <td> <input type="date" name="FInicio" id="FInicio"></td>
+                                <td>Fecha Final</td>
+                                <td>
+                                    <input type="date" name="FTermino" id="FTermino">
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/Moderadores.js"></script>
+<script type="text/javascript" src="assets/javascript/flickr.js"></script>
