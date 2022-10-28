@@ -21,7 +21,7 @@ namespace ProyectoModeradores.Models.Connection
                     + "@AreaId1='" + e.Area1.ToString() + "',"
                     + "@AreaId2='" + e.Area2.ToString() + "',"
                     + "@InstitucionId='" + e.InstitucionId.ToString() + "',"
-                    +"@id_Moderador='" + e.Id.ToString() + "'";
+                    +"@id_Moderador='UAEMEX'";
 
 
 
@@ -84,8 +84,7 @@ namespace ProyectoModeradores.Models.Connection
                 Connections con = new Connections();
 
                 string sql = "EXEC	dbo.ModeradoresInsert " + "@Name='" + e.Name.ToString() + "',"
-                    + "@ApellidoP='" + e.ApellidoP.ToString() + "',"
-                    + "@ApellidoM='" + e.ApellidoM.ToString() + "',"
+
                     + "@StatusId= 1,"
                     + "@InstitucionId='" + e.InstitucionId.ToString() + "'";
 
@@ -110,6 +109,8 @@ namespace ProyectoModeradores.Models.Connection
             }
         }
 
+
+        
         public static DataTable ViewMods()
         {
 
@@ -134,6 +135,33 @@ namespace ProyectoModeradores.Models.Connection
             {
                 return null;
             }
+        }
+        public static DataTable SelectModByName(string Nombre)
+        {
+            try
+            {
+
+                Connections con = new Connections();
+
+                string sql = "SELECT * FROM dbo.Moderadores WHERE Nombre LIKE '%"+
+                    Nombre+
+                    "%'";
+
+
+
+                SqlCommand command = new SqlCommand(sql, con.conectar());
+                SqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+
+                con.desconectar();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
         }
 
         public static DataTable SelectMod(int id)

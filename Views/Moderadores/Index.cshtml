@@ -9,12 +9,36 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-theme.min.css">
 
 <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<table width="100%" align="center" cellpadding="10">
+    <Form asp-action="Index">
+    <tr>
+        <td>
+            Nombre:
+        </td>
+        <td>
+            <input id="Name" name="Nombre" type="Text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="submit"> Buscar </button>
+        </td>
+    </tr>
+    </Form>
+</table>
 
+<br />
+<br />
+<br />
 
 <a class="btn-link" onclick="mostrarModal()"> importar Archivo</a>
 <br />
+<br />
 <a class="btn-link" onclick="NuevoModModal()"> Alta Moderador</a>
-<table cellpadding="6" width="100%" align="center" id="Main_DataTable" class="table">
+<br />
+<br />
+<br />
+<table cellpadding="6" align="center" id="Main_DataTable" class="table">
     <thead>
         <tr>
             <td>

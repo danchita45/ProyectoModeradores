@@ -95,3 +95,9 @@ C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bi
 C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\Newtonsoft.Json.Schema.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\NPOI.OOXML.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\NPOI.OpenXml4Net.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\NPOI.OpenXmlFormats.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\NPOI.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\danch\OneDrive\Escritorio\9°\Auditoria\Proyecto\ProyectoModeradores\bin\Debug\net6.0\ICSharpCode.SharpZipLib.dll

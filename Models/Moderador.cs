@@ -14,7 +14,7 @@
 
         public Status status { get; set; }
         public Area Area { get; set; }
-        public int InstitucionId { get; set; }
+        public string InstitucionId { get; set; }
 
 
         

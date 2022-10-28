@@ -2,6 +2,9 @@
 using ProyectoModeradores.Models;
 using ProyectoModeradores.Models.Connection;
 using System.Data;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using NPOI.HSSF.UserModel;
 
 namespace ProyectoModeradores.Controllers
 {
@@ -9,7 +12,30 @@ namespace ProyectoModeradores.Controllers
     public class ModeradoresController : Controller
     {
         List<Moderador> moderadors = new List<Moderador>();
-        public IActionResult Index()
+
+
+        [HttpPost]
+        public IActionResult Index(string Nombre)
+        {
+            DataTable dt = new DataTable();
+            dt= ModeradorDB.SelectModByName(Nombre);
+            foreach (DataRow lRow in dt.Rows)
+            {
+                moderadors.Add(new Moderador()
+                {
+                    Id = Convert.ToInt32(lRow["id_Moderador"]),
+                    Name = lRow["Nombre"].ToString(),
+                    ApellidoP = lRow["ApellidoP"].ToString(),
+                    ApellidoM = lRow["ApellidoM"].ToString(),
+                    statusId = Convert.ToInt32(lRow["StatusId"]),
+                });
+
+            }
+            return View(moderadors);
+
+            return View();
+        }
+        public IActionResult Index( )
         {
             DataTable dataTable = ModeradorDB.ViewMods();
 
@@ -74,10 +100,41 @@ namespace ProyectoModeradores.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Import(IFormFile FileData)
+        public IActionResult Import(IFormFile FileData)
         {
+            List<Moderador> Mod = new List<Moderador>();
+            Stream stream = FileData.OpenReadStream();
+            IWorkbook Excel = null;
+            if (Path.GetExtension(FileData.FileName) == ".xlsx")
+            {
+                Excel = new XSSFWorkbook(stream);
+            }
 
-            return Redirect("/Moderadores/Index");
+
+            ISheet Hoja = Excel.GetSheetAt(0);
+            int CantidadFilas = Hoja.LastRowNum;
+            for (int i = 1; i <= CantidadFilas; i++)
+            {
+                IRow fila = Hoja.GetRow(i);
+                Mod.Add(new Moderador()
+                {
+                        
+                        Name = fila.GetCell(6).ToString(),
+                        email = fila.GetCell(8).ToString(),
+                        InstitucionId= fila.GetCell(2).ToString()
+
+
+
+                }); ;
+
+            }
+            foreach(Moderador M in Mod)
+            {
+                ModeradorDB.SaveMod(M);
+            }
+
+
+            return Redirect("/");
         }
 
 

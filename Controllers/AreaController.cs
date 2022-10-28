@@ -1,5 +1,9 @@
-﻿using ExcelDataReader;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using ExcelDataReader;
 using Microsoft.AspNetCore.Mvc;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using ProyectoModeradores.Models;
 using ProyectoModeradores.Models.Connection;
 
 namespace ProyectoModeradores.Controllers
@@ -11,50 +15,32 @@ namespace ProyectoModeradores.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult  Import( IFormFile FileData)
+        public IActionResult Import( IFormFile FileData)
         {
-            try
+            List<Area> a = new List<Area>();
+            Stream stream = FileData.OpenReadStream();
+            IWorkbook Excel = null;
+            if (Path.GetExtension(FileData.FileName) == ".xlsx")
             {
-                if (FileData != null)
-                {
-                    using (var content = new MemoryStream())
-                    {
-
-
-                        FileData.CopyTo(content);
-
-                        String lPath = "C:\\Users\\danch\\OneDrive\\Escritorio\\9°\\Auditoria\\Proyecto\\ProyectoModeradores\\content.xlsx";
-                        
-                        System.IO.File.WriteAllBytes(lPath, content.ToArray());
-                        FileStream fileStream = new FileStream(lPath, FileMode.Open, FileAccess.Read);
-                        IExcelDataReader reader = ExcelReaderFactory.CreateReader(fileStream);
-
-                        System.Data.DataSet dtsTablas = reader.AsDataSet(new ExcelDataSetConfiguration()
-                        {
-                            ConfigureDataTable = (tableReader) => new ExcelDataTableConfiguration()
-                            {
-                                UseHeaderRow = true,
-                            }
-
-                        });
-
-                        foreach(System.Data.DataTable table in dtsTablas.Tables) { 
-                            AreaDB.ImportArea(table);
-                        }
-                    }
-                }
-                else
-                {
-                    
-                }
-            }
-            catch (System.Exception ex)
-            {
-                
+                Excel = new XSSFWorkbook(stream);
             }
             
 
-            return Redirect("Index");
+            ISheet Hoja = Excel.GetSheetAt(0);
+            int CantidadFilas = Hoja.LastRowNum;
+            for (int i=0; i <= CantidadFilas; i++)
+            {
+                IRow fila = Hoja.GetRow(i);
+                a.Add(new Area()
+                {
+                    Code = fila.GetCell(0).ToString(),
+                    Description= fila.GetCell(1).ToString(),
+                }) ;
+
+            }
+
+
+            return Redirect("/");
         }
     }
 }

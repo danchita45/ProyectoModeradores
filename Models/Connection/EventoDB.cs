@@ -41,8 +41,6 @@ namespace ProyectoModeradores.Models.Connection
                 string sql = "EXEC	dbo.spEventoInsert " + "@Name='" + e.Name.ToString() + "',"
                     + "@Code='" + e.Code.ToString() + "',"
                     + "@Description='" + e.Description.ToString() + "',"
-                    + "@FInicio='" + e.FInicio.ToShortTimeString() + "',"
-                    + "@FTermino='" + e.FTermino.ToShortTimeString() + "',"
                     + "@StatusId= 1,"
                     + "@ModeradorId='" + e.ModeradorId.ToString() + "',"
                     + "@SalaId='" + e.SalaId.ToString() + "',"
