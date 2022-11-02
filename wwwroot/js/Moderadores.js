@@ -11,7 +11,7 @@ function NuevoModModal() {
 
 function EditMod(obj) {
     document.getElementById('Id').value = obj.Id;
-    document.getElementById('Name').value = obj.Name;
+    document.getElementById('NameId').value = obj.Name;
     document.getElementById('Area1').value = obj.Area1;
     document.getElementById('Area2').value = obj.Area2;
     document.getElementById('InstitucionId').value = obj.InstitucionId;

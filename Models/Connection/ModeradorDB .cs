@@ -164,7 +164,7 @@ namespace ProyectoModeradores.Models.Connection
 
                 Connections con = new Connections();
 
-                string sql = "SELECT * FROM dbo.Moderadores WHERE id_Moderador="+id;
+                string sql = "EXEC dbo.ModeradoresSelectById @ModeradorId="+id;
 
 
 

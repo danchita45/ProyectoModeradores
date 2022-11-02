@@ -5,6 +5,9 @@ using System.Data;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using NPOI.HSSF.UserModel;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
+using NPOI.SS.Formula.PTG;
 
 namespace ProyectoModeradores.Controllers
 {
@@ -26,6 +29,8 @@ namespace ProyectoModeradores.Controllers
                 {
                     Id = Convert.ToInt32(lRow["id_Moderador"]),
                     Name = lRow["Nombre"].ToString(),
+                    Area1 = lRow["Area1"] != DBNull.Value ? Convert.ToInt16(lRow["Area1"]) : Convert.ToInt16(0),
+                    Area2 = lRow["Area2"] != DBNull.Value ? Convert.ToInt16(lRow["Area2"]) : Convert.ToInt16(0),
                     DArea1 = lRow["ADESC1"].ToString(),
                     DArea2 = lRow["ADESC2"].ToString(),
                     InstitucionId = lRow["InstitucionId"].ToString(),
@@ -48,9 +53,11 @@ namespace ProyectoModeradores.Controllers
                 {
                     Id = Convert.ToInt32(lRow["id_Moderador"]),
                     Name = lRow["Nombre"].ToString(),
+                    Area1 = lRow["AreaId1"] != DBNull.Value ? Convert.ToInt16(lRow["AreaId1"]) : Convert.ToInt16(0),
+                    Area2 = lRow["AreaId2"] != DBNull.Value ? Convert.ToInt16(lRow["AreaId2"]) : Convert.ToInt16(0),
                     DArea1 = lRow["ADESC1"].ToString(),
                     DArea2 = lRow["ADESC2"].ToString(),
-                    InstitucionId= lRow["InstitucionId"].ToString(),
+                    InstitucionId = lRow["InstitucionId"].ToString(),
                     statusId = Convert.ToInt32(lRow["StatusId"]),
                 });
 
@@ -89,9 +96,13 @@ namespace ProyectoModeradores.Controllers
             foreach (DataRow lRow in dataTable.Rows)
             {
                 mod.Id = Convert.ToInt32(lRow["id_Moderador"]);
-                mod.Name = lRow["Nombre"].ToString();
-                mod.statusId = Convert.ToInt32(lRow["StatusId"]);
-
+                    mod.Name = lRow["Nombre"].ToString();
+                    mod.Area1 = Convert.ToInt32(lRow["Area1"]);
+                    mod.Area2 = Convert.ToInt32(lRow["Area2"]);
+                    mod.DArea1 = lRow["ADESC1"].ToString();
+                    mod.DArea2 = lRow["ADESC2"].ToString();
+                    mod.InstitucionId = lRow["InstitucionId"].ToString();
+                    mod.statusId = Convert.ToInt32(lRow["StatusId"]);
             }
 
             return View(mod);
