@@ -1,11 +1,62 @@
 ﻿using Microsoft.Data.SqlClient;
 using ProyectoModeradores.Controllers;
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ProyectoModeradores.Models.Connection
 {
     public class ModeradorDB
     {
+        public static string GETSha256(string str)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
+
+        public static bool UpdatePassMod(ProyectoModeradores.Models.Moderador e)
+        {
+            string pwd = GETSha256(e.Password);
+
+            try
+            {
+
+                Connections con = new Connections();
+
+                string sql = "EXEC	dbo.ModeradoresUpdate " 
+                    + "@StatusId= 1,"
+                    + "@AreaId1='" + e.Area1.ToString() + "',"
+                    + "@AreaId2='" + e.Area2.ToString() + "',"
+                    + "@Name='" + e.Name.ToString() + "',"
+                    + "@password='" + pwd + "',"
+                    + "@id_Moderador=" + e.Id.ToString();
+
+
+
+                SqlCommand command = new SqlCommand(sql, con.conectar());
+                int cantidad = command.ExecuteNonQuery();
+                if (cantidad == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                con.desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public static bool UpdateMod(ProyectoModeradores.Models.Moderador e)
         {
 
@@ -18,6 +69,7 @@ namespace ProyectoModeradores.Models.Connection
                     + "@StatusId= 1,"
                     + "@AreaId1='" + e.Area1.ToString() + "',"
                     + "@AreaId2='" + e.Area2.ToString() + "',"
+                    + "@email='" + e.email.ToString() + "',"
                     + "@InstitucionId='" + e.InstitucionId.ToString() + "',"
                     +"@id_Moderador="+e.Id.ToString();
 
@@ -82,7 +134,7 @@ namespace ProyectoModeradores.Models.Connection
                 Connections con = new Connections();
 
                 string sql = "EXEC	dbo.ModeradoresInsert " + "@Name='" + e.Name.ToString() + "',"
-
+                    + "@email='" + e.email.ToString() + "',"
                     + "@StatusId= 1,"
                     + "@InstitucionId='" + e.InstitucionId.ToString() + "'";
 
@@ -135,9 +187,7 @@ namespace ProyectoModeradores.Models.Connection
 
                 Connections con = new Connections();
 
-                string sql = "SELECT * FROM dbo.Moderadores WHERE Nombre LIKE '%"+
-                    Nombre+
-                    "%'";
+                string sql = "EXEC dbo.ModeradoresSelectAllByName @Name='"+Nombre+"'";
 
 
 

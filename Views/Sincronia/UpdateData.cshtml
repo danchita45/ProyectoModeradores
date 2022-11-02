@@ -1,0 +1,59 @@
+﻿@foreach (ProyectoModeradores.Models.Moderador item in ViewBag.mods)
+{
+    <table width="100%" align="center">
+        <tr>
+            <td>
+                Por Favor Ingrese Sus Nuevos Datos Sr/Sra. @item.Name
+            </td>
+        </tr>
+    </table>
+    
+        <br/>
+
+        <table width="100%" align="center"cellpadding="6">
+        <form asp-action="UpdatePassMod" asp-controller="Moderadores">
+        <tr>
+            <td hidden>
+                <input type="number" name="Id" value="@item.Id"> 
+            </td>
+            <td hidden>
+                <input type="text" name="Name" value="@item.Name">
+            </td>
+                <td colspan="2">Nueva Contraseña</td>
+            <td colspan="2">
+                <input type="password" name="Password" id="password">
+                </td>
+            </tr>
+            <tr>
+            <td>
+                Area Principal
+            </td>
+            <td>
+                <select name="Area1" id="Area1" class="form-control" style="width:300px">
+                    @foreach (ProyectoModeradores.Models.Area LArea in ViewBag.Areas)
+                    {
+                        <option Value="@LArea.AreaId"> @LArea.Description</option>
+                    }
+                </select>
+            </td>
+
+            <td>
+                Area Secundaria
+            </td>
+            <td>
+                <select name="Area2" id="Area2" class="form-control" style="width:300px">
+                    @foreach (ProyectoModeradores.Models.Area LArea in ViewBag.Areas)
+                    {
+                        <option Value="@LArea.AreaId"> @LArea.Description</option>
+                    }
+                </select>
+            </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button type="submit"class="btn-primary">Guardar Datos</button>
+                </td>
+            </tr>
+        </form>
+        </table>
+}

@@ -91,6 +91,9 @@
                 <td>
                     <a class="btn-link" asp-action="Delete" asp-route-id="@item.Id">eliminar</a>
                 </td>
+                <td>
+                    <a class="btn-link" asp-action="SendEmail" asp-route-id="@item.Id">eliminar</a>
+                </td>
             </tr>
         }
 
@@ -146,6 +149,12 @@
                                 </td>
                                 <td>
                                     <input type="text" id="NameId" name="Name">
+                                </td>
+                                <td>
+                                    correo
+                                </td>
+                                <td>
+                                    <input type="text" id="email" name="email">
                                 </td>
                             </tr>
                             <tr>
