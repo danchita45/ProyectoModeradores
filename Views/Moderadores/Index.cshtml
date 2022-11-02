@@ -62,6 +62,9 @@
             <td>
                 eliminar
             </td>
+            <td>
+               Acutalizar Datos
+            </td>
         </tr>
     </thead>
     <tbody>
@@ -92,7 +95,7 @@
                     <a class="btn-link" asp-action="Delete" asp-route-id="@item.Id">eliminar</a>
                 </td>
                 <td>
-                    <a class="btn-link" asp-action="SendEmail" asp-route-id="@item.Id">eliminar</a>
+                    <a class="btn-link" asp-action="SendEmail" asp-route-id="@item.Id">Enviar Correo</a>
                 </td>
             </tr>
         }
