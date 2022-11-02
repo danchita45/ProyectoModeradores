@@ -12,7 +12,8 @@ namespace ProyectoModeradores.Controllers
     public class ModeradoresController : Controller
     {
         List<Moderador> moderadors = new List<Moderador>();
-
+        List<Area> areas = new List<Area>();
+        
 
         [HttpPost]
         public IActionResult Index(string Nombre)
@@ -25,8 +26,9 @@ namespace ProyectoModeradores.Controllers
                 {
                     Id = Convert.ToInt32(lRow["id_Moderador"]),
                     Name = lRow["Nombre"].ToString(),
-                    ApellidoP = lRow["ApellidoP"].ToString(),
-                    ApellidoM = lRow["ApellidoM"].ToString(),
+                    DArea1 = lRow["ADESC1"].ToString(),
+                    DArea2 = lRow["ADESC2"].ToString(),
+                    InstitucionId = lRow["InstitucionId"].ToString(),
                     statusId = Convert.ToInt32(lRow["StatusId"]),
                 });
 
@@ -35,7 +37,7 @@ namespace ProyectoModeradores.Controllers
 
             return View();
         }
-        public IActionResult Index( )
+        public IActionResult Index()
         {
             DataTable dataTable = ModeradorDB.ViewMods();
 
@@ -46,12 +48,14 @@ namespace ProyectoModeradores.Controllers
                 {
                     Id = Convert.ToInt32(lRow["id_Moderador"]),
                     Name = lRow["Nombre"].ToString(),
-                    ApellidoP = lRow["ApellidoP"].ToString(),
-                    ApellidoM = lRow["ApellidoM"].ToString(),
+                    DArea1 = lRow["ADESC1"].ToString(),
+                    DArea2 = lRow["ADESC2"].ToString(),
+                    InstitucionId= lRow["InstitucionId"].ToString(),
                     statusId = Convert.ToInt32(lRow["StatusId"]),
                 });
 
             }
+            GetCatalogs();
             return View(moderadors);
         }
 
@@ -84,13 +88,8 @@ namespace ProyectoModeradores.Controllers
             Moderador mod = new Moderador();
             foreach (DataRow lRow in dataTable.Rows)
             {
-
-
-
                 mod.Id = Convert.ToInt32(lRow["id_Moderador"]);
                 mod.Name = lRow["Nombre"].ToString();
-                mod.ApellidoP = lRow["ApellidoP"].ToString();
-                mod.ApellidoM = lRow["ApellidoM"].ToString();
                 mod.statusId = Convert.ToInt32(lRow["StatusId"]);
 
             }
@@ -137,6 +136,25 @@ namespace ProyectoModeradores.Controllers
             return Redirect("/");
         }
 
+
+        public void GetCatalogs()
+        {
+
+            DataTable dtAreas = AreaDB.ViewArea();
+
+            foreach(DataRow lRow in dtAreas.Rows)
+            {
+                areas.Add(new Area()
+                {
+                    AreaId = Convert.ToInt32(lRow["AreaId"]),
+                    Code = lRow["Code"].ToString(),
+                    Description = lRow["Description"].ToString()
+                });
+            }
+
+            ViewData["Areas"] = areas;
+
+        }
 
 
     }

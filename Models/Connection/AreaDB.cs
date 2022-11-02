@@ -50,5 +50,37 @@ namespace ProyectoModeradores.Models.Connection
             }
             return ret;
         }
+
+        public static bool SaveArea(ProyectoModeradores.Models.Area area)
+        {
+
+            try
+            {
+
+                Connections con = new Connections();
+
+                string sql = "EXEC	dbo.AreaInsert " + "@Code='" + area.Code.ToString() + "',"
+                    + "@Description='" + area.Description.ToString() + "'";
+
+
+
+                SqlCommand command = new SqlCommand(sql, con.conectar());
+                int cantidad = command.ExecuteNonQuery();
+                if (cantidad == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                con.desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

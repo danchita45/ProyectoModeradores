@@ -147,18 +147,6 @@
                                 <td>
                                     <input type="text" id="Name" name="Name">
                                 </td>
-                                <td>
-                                    Apellido Paterno
-                                </td>
-                                <td>
-                                    <input type="text" id="ApellidoP" name="ApellidoP">
-                                </td>
-                                <td>
-                                    Apellido Materno
-                                </td>
-                                <td>
-                                    <input type="text" id="ApellidoM" name="ApellidoM">
-                                </td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -168,7 +156,10 @@
                                 </td>
                                 <td>
                                     <select name="Area1" id="Area1" class="form-control" style="width:300px">
-                                        <option Value=1 selected> Ciencias</option>
+                                        @foreach (ProyectoModeradores.Models.Area LArea in ViewBag.Areas)
+                                        {
+                                            <option Value="@LArea.AreaId"> @LArea.Description</option>
+                                        }
                                     </select>
                                 </td>
                                 <td>
@@ -176,7 +167,10 @@
                                 </td>
                                 <td>
                                     <select name="Area2" id="Area2" class="form-control" style="width:300px">
-                                        <option Value=2 selected> Matematicas</option>
+                                        @foreach (ProyectoModeradores.Models.Area LArea in ViewBag.Areas)
+                                        {
+                                            <option Value="@LArea.AreaId"> @LArea.Description</option>
+                                        }
                                     </select>
                                 </td>
                             </tr>
@@ -185,9 +179,7 @@
                                     institucion
                                 </td>
                                 <td colspan="3">
-                                    <select type="text" id="institucion" name="Insitucion">
-                                        <option Value=1 selected> UAEMEX</option>
-                                    </select>
+                                    <input type="text" name="InstitucionId" id="InstitucionId">
                                 </td>
                             </tr>
                         </table>

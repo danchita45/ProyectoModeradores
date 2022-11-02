@@ -9,11 +9,12 @@
         public string email { get; set; }
         public string Password { get; set; }
         public int statusId { get; set; }
-        public string Area1 {get; set;}
-        public string Area2 {get; set;}
+        public int Area1 {get; set;}
+        public int Area2 {get; set;}
 
         public Status status { get; set; }
-        public Area Area { get; set; }
+        public string DArea1 { get; set; }
+        public string DArea2 { get; set; }
         public string InstitucionId { get; set; }
 
 

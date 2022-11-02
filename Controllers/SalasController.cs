@@ -12,7 +12,7 @@ namespace ProyectoModeradores.Controllers
         List<Status> statuses = new List<Status>();
         public IActionResult Index()
         {
-            System.Data.DataTable dataTable =SalasDB.ViewSala();
+            System.Data.DataTable dataTable = SalasDB.ViewSala();
 
 
             foreach (DataRow lRow in dataTable.Rows)
@@ -24,11 +24,11 @@ namespace ProyectoModeradores.Controllers
                     Description = lRow["Description"].ToString(),
                     Area = new Area()
                     {
-                        Description= lRow["ADESC"].ToString()
+                        Description = lRow["ADESC"].ToString()
                     },
-                    Status= new Status()
+                    Status = new Status()
                     {
-                        StatusId= Convert.ToInt16(lRow["StatusId"]),
+                        StatusId = Convert.ToInt16(lRow["StatusId"]),
                         Description = lRow["SDESC"].ToString(),
                     }
                 });
@@ -39,9 +39,9 @@ namespace ProyectoModeradores.Controllers
             {
                 area.Add(new Area()
                 {
-                    AreaId= Convert.ToUInt16(lRow["AreaId"]),
-                    Code= lRow["Code"].ToString(),
-                    Description= lRow["Description"].ToString(),
+                    AreaId = Convert.ToUInt16(lRow["AreaId"]),
+                    Code = lRow["Code"].ToString(),
+                    Description = lRow["Description"].ToString(),
                 });
 
             }
@@ -69,12 +69,12 @@ namespace ProyectoModeradores.Controllers
                 SalasDB.UpdateSala(sala);
             }
             SalasDB.SaveSala(sala);
-                
+
 
             return Redirect(nameof(Index));
         }
         public IActionResult Delete(int id)
-        {
+        { 
             SalasDB.DeleteSala(id);
             return Redirect("/Salas/Index");
         }

@@ -15,13 +15,11 @@ namespace ProyectoModeradores.Models.Connection
                 Connections con = new Connections();
 
                 string sql = "EXEC	dbo.ModeradoresUpdate " + "@Name='" + e.Name.ToString() + "',"
-                    + "@ApellidoP='" + e.ApellidoP.ToString() + "',"
-                    + "@ApellidoM='" + e.ApellidoM.ToString() + "',"
                     + "@StatusId= 1,"
                     + "@AreaId1='" + e.Area1.ToString() + "',"
                     + "@AreaId2='" + e.Area2.ToString() + "',"
                     + "@InstitucionId='" + e.InstitucionId.ToString() + "',"
-                    +"@id_Moderador='UAEMEX'";
+                    +"@id_Moderador="+e.Id.ToString();
 
 
 
@@ -113,16 +111,10 @@ namespace ProyectoModeradores.Models.Connection
         
         public static DataTable ViewMods()
         {
-
             try
             {
-
                 Connections con = new Connections();
-
-                string sql = "SELECT * FROM dbo.Moderadores ";
-
-
-
+                string sql = "EXEC dbo.ModeradoresSelectAll";
                 SqlCommand command = new SqlCommand(sql, con.conectar());
                 SqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
                 DataTable dt = new DataTable();
