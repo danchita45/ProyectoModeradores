@@ -70,12 +70,6 @@ namespace ProyectoModeradores.Controllers
         }
 
         [HttpPost]
-        public IActionResult Consultar(string User, string Pass)
-        {
-            return Redirect(nameof(Index));
-        }
-
-        [HttpPost]
         public IActionResult AgregarMod(Moderador mod)
         {
             if (mod.Id == 0)
