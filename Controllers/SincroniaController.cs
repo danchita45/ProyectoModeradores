@@ -48,11 +48,13 @@ namespace ProyectoModeradores.Controllers
                 {
                     if (s.AreaId == M.Area1)
                     {
+                        //checar que se salven bien , problema de logica, cuando se agrega, se tiene que pasar al siguiente foreach
                         SincroniaDB.SaveData(s.SalaId,M.Id);
                     }
                     break;
                 }
             }
+            //hacer la lista ya depurada
 
 
 
