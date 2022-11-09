@@ -44,6 +44,8 @@ namespace ProyectoModeradores.Models.Connection
                     + "@StatusId= 1,"
                     + "@ModeradorId='" + e.ModeradorId.ToString() + "',"
                     + "@SalaId='" + e.SalaId.ToString() + "',"
+                    + "@FTermino='" + e.FTermino.ToString("dd / MM / yyyy") + "',"
+                    + "@FInicio='" + e.FInicio.ToString("dd/MM/yyyy") + "',"
                     + "@AreaId='" + e.AreaId.ToString() + "'";
 
 

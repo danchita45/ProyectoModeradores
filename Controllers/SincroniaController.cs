@@ -9,18 +9,54 @@ namespace ProyectoModeradores.Controllers
     public class SincroniaController : Controller
     {
         List<Area> areas = new List<Area>();
+        List<Moderador> Mods = new List<Moderador>();
+        List<Sala> Salas = new List<Sala>();
+
         public IActionResult Index()
         {
             return View();
         }
 
 
-        public IActionResult Sincronizar(string Email)
+        public IActionResult Sincronizar()
         {
+            bool res;
+            int a = 0;
+            DataTable dtM = ModeradorDB.ViewMods();
+            foreach(DataRow lRow in dtM.Rows)
+            {
+
+                Mods.Add(new Moderador()
+                {
+                    Id = Convert.ToInt32(lRow["id_Moderador"]),
+                    Area1 = lRow["AreaId1"] != DBNull.Value ? Convert.ToInt32(lRow["AreaId1"]) : Convert.ToInt32(0),
+                    Area2 = lRow["AreaId2"] != DBNull.Value ? Convert.ToInt32(lRow["AreaId2"]) : Convert.ToInt32(0),
+                });
+            }
+            DataTable dtS = SalasDB.ViewSala();
+            foreach(DataRow lRow in dtS.Rows)
+            {
+                Salas.Add(new Sala()
+                {
+                    SalaId = Convert.ToInt32(lRow["SalaId"]),
+                    AreaId = Convert.ToInt32(lRow["AreaId"]),
+                });
+            }
+            foreach (  Sala s in Salas)
+            {
+                foreach(Moderador M in Mods)
+                {
+                    if (s.AreaId == M.Area1)
+                    {
+                        SincroniaDB.SaveData(s.SalaId,M.Id);
+                    }
+                    break;
+                }
+            }
 
 
 
-            SendEmail(Email);
+
             return RedirectToAction("Index");
 
         }

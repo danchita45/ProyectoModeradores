@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using ProyectoModeradores.Models;
 using ProyectoModeradores.Models.Connection;
 using System.Data;
@@ -10,6 +12,7 @@ namespace ProyectoModeradores.Controllers
         List<Sala> salas = new List<Sala>();
         List<Area> area = new List<Area>();
         List<Status> statuses = new List<Status>();
+        List<Moderador> Mods = new List<Moderador>();
         public IActionResult Index()
         {
             System.Data.DataTable dataTable = SalasDB.ViewSala();
@@ -56,9 +59,20 @@ namespace ProyectoModeradores.Controllers
                 });
 
             }
+            System.Data.DataTable dtM = ModeradorDB.ViewMods();
+            foreach (DataRow lRow in dtM.Rows)
+            {
+                Mods.Add(new Moderador()
+                {
+                    Id = Convert.ToUInt16(lRow["id_Moderador"]),
+                    Name = lRow["Nombre"].ToString(),
+                });
+
+            }
             ViewData["Areas"] = area;
             ViewData["Statuses"] = statuses;
             ViewData["Salas"] = salas;
+            ViewData["Moderadors"] = Mods;
             return View();
         }
 
@@ -74,9 +88,57 @@ namespace ProyectoModeradores.Controllers
             return Redirect(nameof(Index));
         }
         public IActionResult Delete(int id)
-        { 
+        {
             SalasDB.DeleteSala(id);
             return Redirect("/Salas/Index");
+        }
+
+
+
+        [HttpPost]
+        public IActionResult Import(IFormFile FileData)
+        {
+
+            Stream stream = FileData.OpenReadStream();
+            IWorkbook Excel = null;
+            if (Path.GetExtension(FileData.FileName) == ".xlsx")
+            {
+                Excel = new XSSFWorkbook(stream);
+            }
+
+            ISheet Hoja = Excel.GetSheetAt(0);
+            int cantidadFilas = Hoja.LastRowNum;
+            for (int i = 1; i < cantidadFilas; i++)
+            {
+                IRow fila = Hoja.GetRow(i);
+                salas.Add(new Sala()
+                {
+                    Code= fila.GetCell(1).ToString(),
+                    Fecha = fila.GetCell(11).ToString(),
+                    AreaD = fila.GetCell(2).ToString(),
+                    Bloque = fila.GetCell(14).ToString(),
+                    Salon = fila.GetCell(15).ToString(),
+                    Ubicacion = fila.GetCell(16).ToString()
+                });
+            }
+
+
+            foreach (Sala S in salas)
+            {
+
+                string[] subs = S.AreaD.Split(':');
+
+
+                S.AreaId = SalasDB.serchArea(subs[0],S.Code);
+                if (S.AreaId != 0)
+                {
+                    SalasDB.SaveSala(S);
+                }
+
+                
+            }
+            return Redirect("/");
+
         }
     }
 }

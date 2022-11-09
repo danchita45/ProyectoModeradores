@@ -4,7 +4,7 @@ using System.Data;
 
 namespace ProyectoModeradores.Models.Connection
 {
-    public class SalasDB 
+    public class SalasDB
     {
 
         public static bool DeleteSala(int id)
@@ -77,11 +77,27 @@ namespace ProyectoModeradores.Models.Connection
             {
 
                 Connections con = new Connections();
-
-                string sql = "EXEC	dbo.SalaInsert " + "@Code='" + e.Code.ToString() + "',"
+                string sql;
+                if (e.Description != null)
+                {
+                    sql = "EXEC	dbo.SalaInsert " + "@Code='" + e.Code.ToString() + "',"
                     + "@Description='" + e.Description.ToString() + "',"
                     + "@AreaId='" + e.AreaId.ToString() + "',"
+                     + "@Fecha='" + e.Fecha.ToString() + "',"
+                    + "@Bloque" + e.Bloque.ToString() + "',"
+                    + "@Salon" + e.Salon.ToString() + "',"
+                    + "@Ubicacion" + e.Ubicacion.ToString()
                     + "@StatusId= 1";
+                }
+                sql = "EXEC	dbo.SalaInsert " + "@Code='" + e.Code.ToString() + "',"
+                + "@Description='Desconocido',"
+                + "@AreaId='" + e.AreaId.ToString() + "',"
+                 + "@Fecha='" + e.Fecha.ToString() + "',"
+                + "@Bloque='" + e.Bloque.ToString() + "',"
+                + "@Salon='" + e.Salon.ToString() + "',"
+                + "@Ubicacion='" + e.Ubicacion.ToString()+"',"
+                + "@StatusId= 1";
+
 
 
 
@@ -127,6 +143,45 @@ namespace ProyectoModeradores.Models.Connection
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        public static int serchArea(string AreaD,string Code)
+        {
+            int areaId = 0;
+            string Codes = "";
+            if(AreaD=="Área V")
+            {
+                areaId = 1;
+            }
+            try
+            {
+
+                Connections con = new Connections();
+
+                string sql = "EXEC dbo.SalaAsignArea  @ST='" + AreaD + "'";
+
+
+
+                SqlCommand command = new SqlCommand(sql, con.conectar());
+                SqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
+                
+                
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                foreach(DataRow lRow in dt.Rows)
+                {
+                    areaId= Convert.ToInt32(lRow["AreaId"].ToString());
+                    break;
+                }
+                con.desconectar();
+                return areaId;
+            }
+            catch (
+            Exception ex)
+            {
+                Code=Codes;
+                return 0;
             }
         }
     }

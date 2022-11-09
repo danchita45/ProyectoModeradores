@@ -75,7 +75,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-controller="Moderadores" asp-action="Import" method="post" enctype="multipart/form-data">
+                <form asp-controller="Salas" asp-action="Import" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="col-4"><label>Archivo </label></div>
@@ -97,7 +97,7 @@
 
 <div class="modal fade" id="NuevaSala" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width:800px;">
-        <div class="modal-content">
+        <div class="modal-content modal-fullscreen-sm-down" >
             <div class="modal-header">
                 <h5 class="modal-title" id="TitleSearchDest">Nueva Sala</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -108,7 +108,7 @@
                 <form asp-controller="Salas" asp-action="Save" method="post">
                     <div class="modal-body">
 
-                        <table align="center" width="100%" cellpadding="4">
+                        <table align="center">
                             <tr>
                                 <td hidden>
                                      <input type="text" id="Id" name="SalaId">
@@ -146,6 +146,18 @@
                                         @foreach (ProyectoModeradores.Models.Area A in ViewBag.Areas)
                                         {
                                             <option value="@A.AreaId">@A.Description</option>
+                                        }
+                                    </select>
+                                </td>
+
+                                <td>
+                                    Moderador:
+                                </td>
+                                <td>
+                                    <select name="ModeradorId" id="ModeradorId" class="form-control">
+                                        @foreach (ProyectoModeradores.Models.Moderador M in ViewBag.Moderadors)
+                                        {
+                                            <option value="@M.Id">@M.Name</option>
                                         }
                                     </select>
                                 </td>

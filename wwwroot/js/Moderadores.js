@@ -6,6 +6,9 @@ function mostrarModalNuevaSala() {
 }
 function NuevoModModal() {
     $('#NuevoMod').modal('show');
+
+}function nuevoevento() {
+    $('#NuevoMod').modal('show');
 }
 
 

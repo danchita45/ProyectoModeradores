@@ -21,19 +21,17 @@ namespace ProyectoModeradores.Models.Connection
 
         public static bool UpdatePassMod(ProyectoModeradores.Models.Moderador e)
         {
-            string pwd = GETSha256(e.Password);
+            
 
             try
             {
 
                 Connections con = new Connections();
 
-                string sql = "EXEC	dbo.ModeradoresUpdate " 
-                    + "@StatusId= 1,"
+                string sql = "EXEC	dbo.ModeradoresUpdatePass " 
                     + "@AreaId1='" + e.Area1.ToString() + "',"
                     + "@AreaId2='" + e.Area2.ToString() + "',"
-                    + "@Name='" + e.Name.ToString() + "',"
-                    + "@password='" + pwd + "',"
+                    + "@password='" + e.Password + "',"
                     + "@id_Moderador=" + e.Id.ToString();
 
 
@@ -135,6 +133,8 @@ namespace ProyectoModeradores.Models.Connection
 
                 string sql = "EXEC	dbo.ModeradoresInsert " + "@Name='" + e.Name.ToString() + "',"
                     + "@email='" + e.email.ToString() + "',"
+                    + "@AreaId1='" + e.Area1.ToString() + "',"
+                    + "@AreaId2='" + e.Area2.ToString() + "',"
                     + "@StatusId= 1,"
                     + "@InstitucionId='" + e.InstitucionId.ToString() + "'";
 
